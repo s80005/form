@@ -35,7 +35,8 @@
                 <input type="text" class="form-control" name="w3lAmount" id="w3lAmount" placeholder="金額"
                   required="">
               </div>
-        
+        	 <!-- 添加一個隱藏的輸入字段來保存日期時間 -->
+              <input type="hidden" name="dateTime" id="dateTime">
               <textarea name="w3lMessage" class="form-control" id="w3lMessage" placeholder="備註"></textarea>
               <button type="submit" class="btn btn-contact">送出</button>
             </form>
@@ -45,23 +46,29 @@
     </div>
   </section>
 
-  <script type="text/javascript">
+ <script type="text/javascript">
 
-
-	  const scriptURL = 'https://script.google.com/macros/s/AKfycbyQtraChUreHBswHYTkRgj3fL3AtdR2gln9I3yS3-V5ll4KZ0UMaNAn3vhUduVm80dD/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyQtraChUreHBswHYTkRgj3fL3AtdR2gln9I3yS3-V5ll4KZ0UMaNAn3vhUduVm80dD/exec';
     const form = document.forms['google-sheet'];
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
+    // 獲取當前日期時間並將其設置到隱藏的輸入字段中
+    function setCurrentDateTime() {
+      var currentDateTime = new Date().toLocaleString();
+      document.getElementById('dateTime').value = currentDateTime;
+    }
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      setCurrentDateTime(); // 在提交前設置當前日期時間
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
-            alert("上傳成功");
-            // 提交成功後清空表單內容
-            form.reset();
+          alert("上傳成功");
+          // 提交成功後清空表單內容
+          form.reset();
         })
         .catch(error => console.error('Error!', error.message));
-});
+    });
   </script>
   <!-- /contact1 -->
 </body>
