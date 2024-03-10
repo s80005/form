@@ -1,45 +1,32 @@
-<!DOCTYPE html>
-<html lang="zh">
-
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<meta name="viewport" content="width=device-width>, initial-
-scale=1.0">
-
-<title>Display Web</title>
-<style type="text/css">
-html {
-overflow: auto;
-}
-
-html,
-body,
-div,
-iframe {
-margin: 0px;
-padding: 0px;
-height: 100%;
-border: none;
-}
-
-iframe {
-display: block;
-width: 100%;
-border: none;
-overflow-y: auto;
-overflow-x: hidden;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Web</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #iframe-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
-
 <body>
-<iframe src="https://script.google.com/macros/s/AKfycbyQtraChUreHBswHYTkRgj3fL3AtdR2gln9I3yS3-V5ll4KZ0UMaNAn3vhUduVm80dD/exec" frameborder="0" marginheight="0" marginwidth="0"
-width="100%" height="100%" scrolling="auto">
-</iframe>
-
+    <div id="iframe-container">
+        <iframe src="https://script.google.com/macros/s/AKfycbyQtraChUreHBswHYTkRgj3fL3AtdR2gln9I3yS3-V5ll4KZ0UMaNAn3vhUduVm80dD/exec" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+    </div>
 </body>
-
-</html>
