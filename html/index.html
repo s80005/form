@@ -1,76 +1,45 @@
 <!DOCTYPE html>
-
+<html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Free Contact Form :: W3layouts</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width>, initial-
+scale=1.0">
+
+<title>Display Web</title>
+<style type="text/css">
+html {
+overflow: auto;
+}
+
+html,
+body,
+div,
+iframe {
+margin: 0px;
+padding: 0px;
+height: 100%;
+border: none;
+}
+
+iframe {
+display: block;
+width: 100%;
+border: none;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+</style>
 </head>
 
 <body>
-  <!-- contact1 -->
-  <section class="w3l-simple-contact-form1">
-    <div class="contact-form section-gap">
-      <div class="wrapper">
-        <div class="contact-form" style="max-width: 450px; margin: 0 auto;">
-          <div class="form-mid">
-            <form action="#" method="post" name="google-sheet">
-              <div class="field">
-                <input type="text" class="form-control" name="w3luser" id="w3luser" placeholder="用戶帳號" required="">
-              </div>
-              <div class="field">
-                <input type="text" class="form-control" name="w3lName" id="w3lName" placeholder="用戶名稱" required="">
-              </div>
-              <div class="field">
-                <input type="text" class="form-control" name="w3lbag" id="w3lbag" placeholder="袋號"
-                  required="">
-              </div>
-              <div class="field">
-                <input type="text" class="form-control" name="w3lquantity" id="w3lquantity" placeholder="件數"
-                  required="">
-              </div>
-              <div class="field">
-                <input type="text" class="form-control" name="w3lAmount" id="w3lAmount" placeholder="金額"
-                  required="">
-              </div>
-        	 <!-- 添加一個隱藏的輸入字段來保存日期時間 -->
-              <input type="hidden" name="dateTime" id="dateTime">
-              <textarea name="w3lMessage" class="form-control" id="w3lMessage" placeholder="備註"></textarea>
-              <button type="submit" class="btn btn-contact">送出</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<iframe src="https://script.google.com/macros/s/AKfycbyQtraChUreHBswHYTkRgj3fL3AtdR2gln9I3yS3-V5ll4KZ0UMaNAn3vhUduVm80dD/exec" frameborder="0" marginheight="0" marginwidth="0"
+width="100%" height="100%" scrolling="auto">
+</iframe>
 
- <script type="text/javascript">
-
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyQtraChUreHBswHYTkRgj3fL3AtdR2gln9I3yS3-V5ll4KZ0UMaNAn3vhUduVm80dD/exec';
-    const form = document.forms['google-sheet'];
-
-    // 獲取當前日期時間並將其設置到隱藏的輸入字段中
-    function setCurrentDateTime() {
-      var currentDateTime = new Date().toLocaleString();
-      document.getElementById('dateTime').value = currentDateTime;
-    }
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      setCurrentDateTime(); // 在提交前設置當前日期時間
-
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-          alert("上傳成功");
-          // 提交成功後清空表單內容
-          form.reset();
-        })
-        .catch(error => console.error('Error!', error.message));
-    });
-  </script>
-  <!-- /contact1 -->
 </body>
 
 </html>
